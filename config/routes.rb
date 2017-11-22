@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   get 'reviews/create'
 
-  get 'reviews/create'
+ devise_for :users
+ resources :movies
 
-  devise_for :users
-  resources :movies
+ get 'movies/:id/reviews' => 'reviews#create'
 
-  get 'movies/:id/reviews' => 'reviews#create'
+ root 'movies#index'
 
-  root 'movies#index'
+ namespace :admin do
+   resources :users do
+     put :upgrade, on: :member
+     put :downgrade, on: :member
+   end
+ end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
