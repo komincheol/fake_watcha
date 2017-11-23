@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'faker'
+gem 'trix'
 gem 'aws-sdk-rails'
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
