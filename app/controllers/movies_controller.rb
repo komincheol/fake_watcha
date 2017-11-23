@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
-  load_and_authorize_resource
+  #load_and_authorize_resource
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
  # GET /movies
  # GET /movies.json
  def index
    @movies = Movie.all
+   puts current_user
    #authorize! :read, Movie
  end
 
